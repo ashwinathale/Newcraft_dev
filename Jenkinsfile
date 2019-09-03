@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage ('Create File') {
       steps {
-      node ('829zmsh-t-app1.cloudnl.digital.kpn.org') {
+      node ('master') {
         sh '''
           #!/bin/bash
           cd /u01/Git_Repo
