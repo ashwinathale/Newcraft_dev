@@ -1,17 +1,25 @@
 pipeline {
   agent any 
-    stages {
-      stage ('First Stage') {
-        steps {
-          echo 'Hello From Jenkins Pipeline'
-          }
-      }
-      stage ('Second Stage') {
-        steps {
-          echo 'Just testing whether the SCM polling works or not'
-          }
-        }
-      }
+  node ('829zmsh-t-app1.cloudnl.digital.kpn.org') {
+    stage ('Create File') {
+      sh '''
+        #!/bin/bash
+        cd /u01/Git_Repo
+        echo "This is just for testing purpose"
+        touch test.txt
+        '''
     }
+      stage ('Create Dir') {
+        sh '''
+        #!/bin/bash
+        cd /u01/Git_Repo
+        mkdir Deploy
+        chmod 744 Deploy
+        '''
+      }
+  }
+}
+        
+        
 
 
