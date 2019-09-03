@@ -1,8 +1,8 @@
 pipeline {
   agent any 
   stages {
-  node ('829zmsh-t-app1.cloudnl.digital.kpn.org') {
-      stage ('Create File') {
+    stage ('Create File') {
+      node ('829zmsh-t-app1.cloudnl.digital.kpn.org') {
         sh '''
           #!/bin/bash
           cd /u01/Git_Repo
@@ -10,14 +10,6 @@ pipeline {
           touch test.txt
           '''
     }
-      stage ('Create Dir') {
-        sh '''
-        #!/bin/bash
-        cd /u01/Git_Repo
-        mkdir Deploy
-        chmod 744 Deploy
-        '''
-      }
     }
   }
 }
