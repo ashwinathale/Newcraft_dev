@@ -2,6 +2,7 @@ pipeline {
   agent any 
   stages {
     stage ('Create File') {
+      steps {
       node ('829zmsh-t-app1.cloudnl.digital.kpn.org') {
         sh '''
           #!/bin/bash
@@ -9,6 +10,7 @@ pipeline {
           echo "This is just for testing purpose"
           touch test.txt
           '''
+    }
     }
     }
   }
