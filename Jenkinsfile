@@ -1,8 +1,7 @@
 pipeline {
   agent any 
+  stages {
   node ('829zmsh-t-app1.cloudnl.digital.kpn.org') {
-    stages {
-      
       stage ('Create File') {
         sh '''
           #!/bin/bash
